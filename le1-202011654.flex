@@ -1,9 +1,6 @@
-/* CS 155 Flex Demo     						*/
-/* cs155demo.flex								*/
-/* This is meant to demonstrate a simple flex program */
-/* V2 13-Feb-2024 spfestin						*/
-/* V1 23-Feb-2022 spfestin 						*/
-/* Note: This is for class demo purposes only 	*/
+/* CS 155 Lab Exercise 1     						*/
+/* le1-202011654.flex								*/
+/* V1 29-Feb-2024 spfestin 						*/
 
 %option noyywrap
 
@@ -15,10 +12,10 @@ void ret_print(char *token_type);
 void yyerror();
 %}
 
-DIGIT	         [0-9]
-CHARSTRING	   [a-zA-Z0-9 ]
+DIGIT          [0-9]
+CHARSTRING     [a-zA-Z0-9 ]
 CHAR           [a-zA-Z]
-ID	            [0-9a-zA-Z]*
+ID             [0-9a-zA-Z]*
 
 
 %%
