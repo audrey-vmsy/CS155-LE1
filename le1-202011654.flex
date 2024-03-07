@@ -1,6 +1,6 @@
-/* CS 155 Lab Exercise 1     						*/
-/* le1-202011654.flex								*/
-/* V1 29-Feb-2024 spfestin 						*/
+/* CS 155 Lab Exercise 1 */
+/* le1-202011654.flex */
+/* V1 29-Feb-2024 */
 
 %option noyywrap
 
@@ -19,9 +19,9 @@ ID             [0-9a-zA-Z]*
 
 
 %%
-"PROCEDURE"|"VAR"|"STRINGN"|"WRITELN"|"NOT"|"OR"|"DIV"|"MOD"|"AND"|"IF"|"THEN"|"ELSE"|"WHILE"|"DO"|"FOR"|"TO"|"DOWNTO"|":="|"BEGIN"|"END"  { ret_print("RESERVED_WORD"); }
+"PROCEDURE"|"VAR"|"STRING"|"WRITELN"|"NOT"|"OR"|"DIV"|"MOD"|"AND"|"IF"|"THEN"|"ELSE"|"WHILE"|"DO"|"FOR"|"TO"|"DOWNTO"|":="|"BEGIN"|"END"  { ret_print("RESERVED_WORD"); }
 "INTEGER"|"REAL"|"BOOLEAN"|"STRING" { ret_print("TYPE"); }
-"\"0\""|"\"1\""|"\"2\""|"\"3\""|"\"4\""|"\"5\""|"\"6\""|"\"7\""|"\"8\""|"\"9\""	{ ret_print("DIGIT"); }
+{DIGIT}	{ ret_print("DIGIT"); }
 {DIGIT}+ 	{ ret_print("INTEGER"); }
 {DIGIT}"."{DIGIT}* 	{ ret_print("REAL");}
 "True"|"False" 	{ ret_print("BOOLEAN");}
