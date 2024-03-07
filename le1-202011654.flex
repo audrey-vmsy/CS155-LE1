@@ -22,13 +22,15 @@ ID             [0-9a-zA-Z]*
 "PROCEDURE"|"VAR"|"STRING"|"WRITELN"|"NOT"|"OR"|"DIV"|"MOD"|"AND"|"IF"|"THEN"|"ELSE"|"WHILE"|"DO"|"FOR"|"TO"|"DOWNTO"|":="|"BEGIN"|"END"  { ret_print("RESERVED_WORD"); }
 "INTEGER"|"REAL"|"BOOLEAN"|"STRING" { ret_print("TYPE"); }
 {DIGIT}	{ ret_print("DIGIT"); }
-{DIGIT}+ 	{ ret_print("INTEGER"); }
-{DIGIT}"."{DIGIT}* 	{ ret_print("REAL");}
+{DIGIT}+ 	{ ret_print("IntNumber"); }
+{DIGIT}+"."{DIGIT}* { ret_print("RealNumber");}
+{DIGIT}+ { ret_print("UnsignedDigitSeq");}
+"+"{DIGIT}+|"-"{DIGIT}+ { ret_print("DigitSeq");}
 "True"|"False" 	{ ret_print("BOOLEAN");}
 "\""{CHARSTRING}+"\"" 	{ ret_print("STRING");}
 {CHAR}+  { ret_print("StringChar");}
 {CHAR} 	{ ret_print("LETTER");}
-"+"|"-" 	{ ret_print("AddOp"); }
+"+"|"-" 	{ ret_print("Sign"); }
 "*"|"/" 	{ ret_print("MulOp"); }
 "="|"<>"|"<"|"<="|">"|">=" 	{ ret_print("RelOp"); }
 "," 	{ ret_print("Comma"); }
